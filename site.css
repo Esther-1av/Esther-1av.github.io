@@ -1,7 +1,7 @@
 /*this is the navigation bar styling and grow conditions*/
 
 nav {
-    position: sticky;
+    position: top;
     top: 0;
     z-index: 100;
 }
@@ -30,3 +30,12 @@ nav a:active {
 nav a {
     transition: color 0.3s ease;
 }
+.WebContainer{
+    width: 100%;
+    height: auto;
+}
+.articles{
+    width:90%; /*Takes 90% width from WebContainer*/
+    height: auto;
+    margin: auto;
+} 
