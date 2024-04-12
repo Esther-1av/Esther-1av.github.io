@@ -21,6 +21,11 @@ def validate_phone(phone, characters=['-', '/'], min_length=10):
         if len(phone) <= min_length or phone.lower() != n/a:
             phone = input("Your Phone number is not long enough, please try again")
             break
+        while correctphone.lower() = "no"
+            correctphone = input("Is this correct",phone,"")
+            phone = input("What is your phone number:")
+            if correctphone.lower() = "yes"
+                break
         else: 
             return phone
 
