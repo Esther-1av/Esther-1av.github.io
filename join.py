@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request
+from flask import Flask, render, request
 
 app = Flask(__name__)
 
@@ -13,6 +13,12 @@ def validate_email(email, characters=['@','.'], min_length=6):
                 break
         if len(email) <= min_length:
             email = input("Your email is not long enough, please try again: ")
+        correctemail = "no"
+        while correctemail.lower() == "no":
+            email = input("What is your email: ")
+            correctemail = input("Is this correct: {} (yes/no)".format(email))
+            if correctemail.lower() == "yes":
+                break
         else:
             return email
 
@@ -41,6 +47,8 @@ def index():
     conn = sqlite3.connect('user_info.db')
     c = conn.cursor()
 
+# we can put whatever information that would help us to personalize and improve the app here 
+    
     if request.method == 'POST':
         name = request.form['name']
         age = request.form['age']
@@ -52,7 +60,7 @@ def index():
 
         return "Information added successfully for '{}'".format(email)
 
-    return render_template('index.html')
+    return render('index.html')
 
 if __name__ == '__main__':
     app.run()
