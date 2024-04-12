@@ -1,17 +1,28 @@
 import sqlite3
 
-# validate email addresses
+# validate email 
 
-def validate_email(email_address, characters=['@','.'], min_length=6):
+def validate_email(email, characters=['@','.'], min_length=6):
     while True:
         for character in characters:
-            if character not in email_address:
-                email_address = input("Something went wrong, please try again: ")
+            if character not in email:
+                email = input("Something went wrong, make sure to only use '@', and '.'. Please try again: ")
                 break
-        if len(email_address) <= min_length:
-            email_address = input("Your email is not long enough, please try again: ")
+        if len(email) <= min_length:
+            email = input("Your email is not long enough, please try again: ")
         else:
-            return email_address
+            return email
+def validate_phone(phone, characters=['-', '/'], min_length=10):
+    while True: 
+        for character in characters:
+            if character not in phone:
+                phone = input("Something went wrong, make sure to only use '-' or '/'. Please try again: ")
+                break
+        if len(phone) <= min_length or phone.lower() != n/a:
+            phone = input("Your Phone number is not long enough, please try again")
+            break
+        else: 
+            return phone
 
 try:
 
@@ -29,6 +40,7 @@ try:
     name = input("What should we call you: ")
     age = int(input("How old are you: "))
     email = validate_email(input("What is your email: "))
+    phone = input("What is your phone number (optional, type n/a if no number is available ): ")
 
     # Insert validated user information into the database
   
