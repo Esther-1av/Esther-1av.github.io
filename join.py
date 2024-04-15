@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -47,8 +47,6 @@ def index():
     conn = sqlite3.connect('user_info.db')
     c = conn.cursor()
 
-# we can put whatever information that would help us to personalize and improve the app here 
-    
     if request.method == 'POST':
         name = request.form['name']
         age = request.form['age']
@@ -60,7 +58,7 @@ def index():
 
         return "Information added successfully for '{}'".format(email)
 
-    return render('index.html')
+    return render_template('main.html')
 
 if __name__ == '__main__':
     app.run()
